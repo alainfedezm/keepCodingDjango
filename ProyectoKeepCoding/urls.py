@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appKeepCoding.views import curso
+from appKeepCoding.views import curso, entrega, eliminar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('curso/', curso)
+    path('curso/', curso),
+    path('entrega/<nombreT>', entrega),
+    path('eliminar/<int:idT>', eliminar)
 ]

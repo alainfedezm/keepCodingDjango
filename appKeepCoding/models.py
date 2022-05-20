@@ -5,6 +5,9 @@ class Curso(models.Model):
 
     nombre=models.CharField(max_length=40)
     camada = models.IntegerField()
+    
+    def __str__(self):
+        return f'Nombre: {self.nombre}, camada: {self.camada}'
 
 
 class Estudiante(models.Model):
@@ -18,7 +21,12 @@ class Profesor(models.Model):
     email= models.EmailField()
     profesion= models.CharField(max_length=30)
 
+
 class Entregable(models.Model):
     nombre= models.CharField(max_length=30)
     fechaDeEntrega = models.DateField()  
     entregado = models.BooleanField()
+
+    def __str__(self):
+        return (f'La tarea {self.nombre} se entrego el {self.fechaDeEntrega}' if self.entregado else f'La tarea {self.nombre} no fue entregada' )
+    
